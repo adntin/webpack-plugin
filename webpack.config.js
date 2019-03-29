@@ -3,6 +3,8 @@ const path = require("path");
 // const AsyncPlugin = require("./plugins/AsyncPlugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const FileListPlugin = require("./plugins/FileListPlugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const InlineSourcePlugin = require("./plugins/InlineSourcePlugin");
 
 module.exports = {
   mode: "development",
@@ -10,6 +12,14 @@ module.exports = {
   output: {
     filename: "bundle.js",
     path: path.resolve(__dirname, "dist")
+  },
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [MiniCssExtractPlugin.loader, "css-loader"]
+      }
+    ]
   },
   plugins: [
     // new DonePlugin(),
@@ -19,6 +29,12 @@ module.exports = {
     }),
     new FileListPlugin({
       filename: "list.md"
+    }),
+    new MiniCssExtractPlugin({
+      filename: "main.css"
+    }),
+    new InlineSourcePlugin({
+      reg: /\.(js|css)$/
     })
   ]
 };
