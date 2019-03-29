@@ -21,6 +21,7 @@
     "css-loader": "^2.1.1",
     "html-webpack-plugin": "^4.0.0-beta.5",
     "mini-css-extract-plugin": "^0.5.0",
+    "qiniu": "^7.2.1",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0"
   }

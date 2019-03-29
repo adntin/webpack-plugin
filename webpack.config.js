@@ -4,7 +4,8 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const FileListPlugin = require("./plugins/FileListPlugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const InlineSourcePlugin = require("./plugins/InlineSourcePlugin");
+// const InlineSourcePlugin = require("./plugins/InlineSourcePlugin");
+// const UploadPlugin = require("./plugins/UploadPlugin");
 
 module.exports = {
   mode: "development",
@@ -32,9 +33,15 @@ module.exports = {
     }),
     new MiniCssExtractPlugin({
       filename: "main.css"
-    }),
-    new InlineSourcePlugin({
-      reg: /\.(js|css)$/
     })
+    // new InlineSourcePlugin({
+    //   reg: /\.(js|css)$/
+    // }),
+    // new UploadPlugin({
+    //   bucket: "", // 对象存储 --> 存储空间
+    //   domain: "",
+    //   accessKey: "pqh2kJeesifWoKwMlBoFpNpnHQ6JXS47bX5O8n9V",
+    //   secretKey: "nn-ZtdsL_J2yH1AcHaPoObXVTy-WZ0hwisFGjoSc"
+    // })
   ]
 };
